@@ -1,0 +1,20 @@
+name: Test, lint, publish
+
+on:
+  push:
+    branches:
+      - "master"
+      - "feature/**"
+      - "hotfix/**"
+      - "bugfix/**"
+    tags:
+      - v*
+
+jobs:
+  just-stupid-debug:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - continue-on-error: true
+        run: |
+          echo ${GITHUB_REF_NAME/v/}
