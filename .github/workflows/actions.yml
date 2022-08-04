@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo $secrets.STUPID_SECRET
+          echo ${secrets.STUPID_SECRET}
 
   just-stupid-tag-debug:
     runs-on: ubuntu-latest
