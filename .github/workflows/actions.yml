@@ -11,7 +11,13 @@ on:
       - v*
 
 jobs:
-  just-stupid-debug:
+  main-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo $secrets.STUPID_SECRET
+
+  just-stupid-tag-debug:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
